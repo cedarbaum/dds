@@ -23,6 +23,7 @@
 #ifdef __cplusplus
   #define EXTERN_C extern "C"
 #else
+  #include <stdbool.h>
   #define EXTERN_C
 #endif
 
@@ -281,9 +282,9 @@ struct contractType
   int overTricks; /* 0-3, e.g. 1 for 4S + 1. */
   int level; /* 1-7 */
   int denom; /* 0 = No Trumps, 1 = trump Spades, 2 = trump Hearts,
-				  3 = trump Diamonds, 4 = trump Clubs */
+                  3 = trump Diamonds, 4 = trump Clubs */
   int seats; /* One of the cases N, E, W, S, NS, EW;
-				   0 = N 1 = E, 2 = S, 3 = W, 4 = NS, 5 = EW */
+                   0 = N 1 = E, 2 = S, 3 = W, 4 = NS, 5 = EW */
 };
 
 struct parResultsMaster
@@ -296,9 +297,9 @@ struct parResultsMaster
 struct parTextResults
 {
   char parText[2][128]; /* Short text for par information, e.g.
-				Par -110: EW 2S EW 2D+1 */
+                Par -110: EW 2S EW 2D+1 */
   bool equal; /* true in the normal case when it does not matter who
-			starts the bidding. Otherwise, false. */
+            starts the bidding. Otherwise, false. */
 };
 
 
@@ -342,7 +343,7 @@ struct solvedPlays
 struct DDSInfo
 {
   // Version 2.8.0 has 2, 8, 0 and a string of 2.8.0
-  int major, minor, patch; 
+  int major, minor, patch;
   char versionString[10];
 
   // Currently 0 = unknown, 1 = Windows, 2 = Cygwin, 3 = Linux, 4 = Apple
@@ -360,10 +361,10 @@ struct DDSInfo
 
   int numCores;
 
-  // Currently 
-  // 0 = none, 
-  // 1 = Windows (native), 
-  // 2 = OpenMP, 
+  // Currently
+  // 0 = none,
+  // 1 = Windows (native),
+  // 2 = OpenMP,
   // 3 = GCD,
   // 4 = Boost,
   // 5 = STL,
@@ -485,7 +486,7 @@ EXTERN_C DLLEXPORT int STDCALL DealerPar(
 EXTERN_C DLLEXPORT int STDCALL DealerParBin(
   struct ddTableResults * tablep,
   struct parResultsMaster * presp,
-  int dealer, 
+  int dealer,
   int vulnerable);
 
 EXTERN_C DLLEXPORT int STDCALL SidesParBin(
